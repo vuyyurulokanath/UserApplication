@@ -22,6 +22,7 @@ import com.application.Service.FileInfoService;
 import com.application.Service.UserInfoService;
 
 @Controller
+//"message", "no file is to upload select file"
 public class UserDetailsController {
 
 	private UserInfoService userService;
@@ -196,6 +197,8 @@ public class UserDetailsController {
 		return "index";
 
 	}
+	
+	
 
 	@RequestMapping(value = "/upload/{id}", method = { RequestMethod.POST, RequestMethod.GET })
 	public String uploadfile(ModelMap map, @PathVariable("id") long id, @RequestParam("file") MultipartFile file)
