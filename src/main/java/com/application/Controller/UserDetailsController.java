@@ -49,29 +49,29 @@ public class UserDetailsController {
 
 	}
 
-//	@RequestMapping(value = "/saveuser", method = RequestMethod.POST)
-//	public String saveuser(@ModelAttribute("userinfo") UserDetailsInfo userinfo, ModelMap map) {
-//
-//		UserDetailsInfo fetchuser = userService.findByEmail(userinfo.getEmail());
-//
-//		if (fetchuser != null) {
-//
-//			map.put("message", "email is already  registerd ");
-//			return "errormsg";
-//
-//		} else {
-//
-//			userinfo.setAvailable_files(0);
-//			userinfo.setTotalfiles_uploaded(0);
-//			userinfo.setRole(Role.USER);
-//
-//			UserDetailsInfo saveuser = userService.save(userinfo);
-//
-//			map.addAttribute("user", saveuser);
-//			return "userfetch";
-//		}
-//
-//	}
+	@RequestMapping(value = "/saveuser", method = RequestMethod.POST)
+	public String saveuser(@ModelAttribute("userinfo") UserDetailsInfo userinfo, ModelMap map) {
+
+		UserDetailsInfo fetchuser = userService.findByEmail(userinfo.getEmail());
+
+		if (fetchuser != null) {
+
+			map.put("message", "email is already  registerd ");
+			return "errormsg";
+
+		} else {
+
+			userinfo.setAvailable_files(0);
+			userinfo.setTotalfiles_uploaded(0);
+			userinfo.setRole(Role.USER);
+
+			UserDetailsInfo saveuser = userService.save(userinfo);
+
+			map.addAttribute("user", saveuser);
+			return "userfetch";
+		}
+
+	}
 
 	@RequestMapping(value = "/loginpage", method = RequestMethod.GET)
 	public String Showloginpag(ModelMap map)
